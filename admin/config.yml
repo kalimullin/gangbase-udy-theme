@@ -191,6 +191,12 @@
           }
         },
         {
+          "name": "link",
+          "label": "Link (URL)",
+          "widget": "string",
+          "required": false
+        },
+        {
           "label": "Body",
           "name": "body",
           "widget": "markdown",

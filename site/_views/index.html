@@ -49,7 +49,7 @@
         <div class="collection-list-wrapper w-dyn-list">
           <div role="list" class="collection-list w-dyn-items w-row">
             {%- assign collection = collections.posts -%}{%- for item in collection -%}<div role="listitem" class="collection-item w-clearfix w-dyn-item w-col w-col-3">
-              <a href="#" url="Link" class="link w-inline-block">
+              <a href="{{ item.data.link }}" class="link w-inline-block">
                 <div class="mail-linkblock-img-container"><img width="360" src="{{ item.data.image }}" alt="" class="mail-linkblock-img"></div>
                 <div class="link-info">
                   <div class="link-heading">{{ item.data.title }}</div>
@@ -59,7 +59,7 @@
             </div>{%- endfor -%}
           </div>
           
-          <div class="w-pagination-wrapper" data-pagination-id="posts_P1x7">
+          <div class="w-pagination-wrapper" data-pagination-id="posts_GJ">
             <a href="#" class="w-pagination-previous pagination" data-pagination-role="prev-page" style="display: none;">
               <div class="w-inline-block">← previous</div>
             </a>
