@@ -1,0 +1,29 @@
+---js
+{
+  pagination: {
+  data: "collections.-b3550e8_paged",
+  size: 1,
+  alias: "c",
+  },
+  permalink: "{{ c.permalink }}"
+}  
+---
+{%- capture items -%}
+{%- for item in c.items -%}
+<div role="listitem" class="collection-item w-clearfix w-dyn-item w-col w-col-3">
+              <a href="{{ item.data.link | escape }}" class="link w-inline-block">
+                <div class="mail-linkblock-img-container"><img width="360" src="{{ item.data.image.url | escape }}" alt="{{ item.data.image.alt | escape }}" class="mail-linkblock-img"></div>
+                <div class="link-info">
+                  <div class="link-heading">{{ item.data.name }}</div>
+                  <div class="link-date">{{ item.data.date | formatDate: "MMM D, YYYY" }}</div>
+                </div>
+              </a>
+            </div>
+{%- endfor -%}
+{%- endcapture -%}
+{
+  "items": {{ items | json }},
+   "length": "{{ c.items.length }}",
+   "next": "{{c.next }}",
+   "prev": "{{c.prev}}"
+}

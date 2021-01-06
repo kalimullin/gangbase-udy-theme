@@ -46,26 +46,26 @@
     </div>
     <div class="content">
       <div class="container">
-        <div collection="Posts" class="collection-list-wrapper w-dyn-list">
-          <div role="list" class="collection-list w-dyn-items w-row">
-            <div role="listitem" class="collection-item w-clearfix w-dyn-item w-col w-col-3">
-              <a href="#" link="Link" class="link w-inline-block">
-                <div class="mail-linkblock-img-container"><img width="360" image="Image" src="/static/" alt="" class="mail-linkblock-img"></div>
+        {%- assign collectionId = "main" -%}{%- assign collection = collections["-b3550e8"][collectionId] | limit: 40 -%}<div class="collection-list-wrapper w-dyn-list">
+          {%- if collection.length > 0 -%}<div role="list" class="collection-list w-dyn-items w-row">
+            {%- for item in collection -%}<div role="listitem" class="collection-item w-clearfix w-dyn-item w-col w-col-3">
+              <a href="{{ item.data.link | escape }}" class="link w-inline-block">
+                <div class="mail-linkblock-img-container"><img width="360" src="{{ item.data.image.url | escape }}" alt="{{ item.data.image.alt | escape }}" class="mail-linkblock-img"></div>
                 <div class="link-info">
-                  <div text="Name" class="link-heading"></div>
-                  <div text="Date" format="MMM d, yyyy" class="link-date"></div>
+                  <div class="link-heading">{{ item.data.name }}</div>
+                  <div class="link-date">{{ item.data.date | formatDate: "MMM D, YYYY" }}</div>
                 </div>
               </a>
-            </div>
-          </div>
-          <div class="w-dyn-empty">
+            </div>{%- endfor -%}
+          </div>{%- endif -%}
+          {%- unless collection.length > 0 -%}<div class="w-dyn-empty">
             <div>No items found.</div>
-          </div>
-          <div class="w-pagination-wrapper">
-            <a href="#" class="w-pagination-previous pagination">
+          </div>{%- endunless -%}
+          {%- assign paginationId = "-b3550e8-" | append: collectionId -%}{% assign paginationExists = false %}{% assign paginationUrl =  "/pagination/" | append: paginationId | append: "/page-1.json" %}{% for item in collections.all %}{% if item.url == paginationUrl %}{% assign paginationExists = true %}{% endif; %}{% endfor %}<div class="w-pagination-wrapper" pagination="{{ paginationId }}">
+            <a href="#" class="w-pagination-previous pagination" style="display: none;">
               <div class="w-inline-block">← previous</div>
             </a>
-            <a href="#" class="w-pagination-next pagination">
+            <a href="#" class="w-pagination-next pagination" pagination-exists="{{ paginationExists }}" style="display: none;">
               <div class="w-inline-block">next →</div>
             </a>
           </div>
