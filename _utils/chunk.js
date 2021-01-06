@@ -1,4 +1,4 @@
-module.exports  = function(array, n){  
+module.exports.chunk  = function(array, n){  
     if (n == 0) {
         return [array];
     }
