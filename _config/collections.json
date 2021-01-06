@@ -1,11 +1,6 @@
 {
-  "-b3550e8": {
+  "-126855dd": {
     "collection": "posts",
-    "paginationLimit": 40,
-    "query": {
-      "sort": [
-        "-date"
-      ]
-    }
+    "paginationLimit": 40
   }
 }

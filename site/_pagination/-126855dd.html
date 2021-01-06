@@ -1,7 +1,7 @@
 ---js
 {
   pagination: {
-  data: "collections.-b3550e8_paged",
+  data: "collections.-126855dd_paged",
   size: 1,
   alias: "c",
   },
@@ -15,7 +15,7 @@
                 <div class="mail-linkblock-img-container"><img width="360" src="{{ item.data.image.url | escape }}" alt="{{ item.data.image.alt | escape }}" class="mail-linkblock-img"></div>
                 <div class="link-info">
                   <div class="link-heading">{{ item.data.name }}</div>
-                  <div class="link-date">{{ item.data.date | formatDate: "MMM D, YYYY" }}</div>
+                  <div class="link-date">{{ item.data['created-on'] | formatDate: "MMMM D, YYYY" }}</div>
                 </div>
               </a>
             </div>

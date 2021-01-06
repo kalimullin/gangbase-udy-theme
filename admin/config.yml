@@ -134,10 +134,6 @@ collections:
             name: "alt"
             label: "Alt Text"
             required: true
-      - name: "date"
-        label: "Date"
-        widget: "datetime"
-        required: true
       - name: "link"
         label: "Link (URL)"
         widget: "string"
